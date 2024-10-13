@@ -5,7 +5,7 @@ This is an auto push repository for Baekjoon Online Judge created with [Baekjoon
 
 목표 : 1일 1커밋!
 
-필수 : 책으로 공부하고 프로그래머스로 문제 풀어서 커밋하기
+필수 : 책으로 공부하고 프로그래머스로 문제 풀어서 커밋하기 </br>
 선택 : 공부 내용 md 파일로 정리 후 업로드
 
 
