@@ -2,52 +2,32 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] answers) {
-        int[] a = {1,2,3,4,5};
-        int[] b = {2,1,2,3,2,4,2,5};
-        int[] c = {3,3,1,1,2,2,4,4,5,5};
-        int ac =0;
-        int bc =0;
-        int cc=0;
-        for (int i = 0; i<answers.length; i++){
-            if (answers[i] == a[i%5])
-                ac++;
-            if (answers[i] == b[i%8])
-                bc++;
-            if (answers[i] == c[i%10])
-                cc++;
+        int[][] answer = {{1,2,3,4,5},
+                          {2,1,2,3,2,4,2,5},
+                          {3,3,1,1,2,2,4,4,5,5}};
+        
+        int[] solution = {0,0,0};
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        for (int i = 0; i<answers.length; i++) {
+            if (answers[i] == answer[0][i%5]) {
+                solution[0]++;
+            }
+            if (answers[i] == answer[1][i%8]) {
+                solution[1]++;
+            }
+            if (answers[i] == answer[2][i%10]) {
+                solution[2]++;
+            }
         }
         
-        HashSet<Integer> answer = new HashSet<>();
-        
-        if (ac > bc && ac>cc){
-            answer.add(1);
-        }
-        else if (bc > ac && bc > cc){
-            answer.add(2);
-        }
-        else if (cc > ac && cc > bc){
-            answer.add(3);
-        }
-        else if (bc == ac && bc > cc){
-            answer.add(1);
-            answer.add(2);
-        }
-        else if (cc == ac && ac > bc){
-            answer.add(1);
-            answer.add(3);
-        }
-        else if (bc == cc && bc > ac){
-            answer.add(2);
-            answer.add(3);
-        }
-        else if (bc == ac && bc == cc){
-            answer.add(1);
-            answer.add(2);
-            answer.add(3);
+        int maxValue = Arrays.stream(solution).max().getAsInt();
+        for (int i =0; i<3; i++) {
+            if (solution[i] == maxValue) {
+                list.add(i+1);
+            }
         }
         
-        int[] answera = answer.stream().mapToInt(Integer::intValue).toArray();
-        
-        return answera;
+        return list.stream().sorted().mapToInt(Integer::intValue).toArray();
     }
 }
