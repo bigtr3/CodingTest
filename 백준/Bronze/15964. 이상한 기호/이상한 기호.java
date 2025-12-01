@@ -11,9 +11,7 @@ public class Main {
         System.out.println(cal(a,b));
     }
 
-    static int cal(int a, int b) {
-        int result =0;
-        result = (a+b) * (a-b);
-        return result;
+    static long cal(int a, int b) {
+        return (long)(a+b)*(a-b);
     }
 }
